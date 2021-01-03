@@ -33,13 +33,12 @@ public interface EmperorDao {
 
     //查所有符合条件的
     @Query("SELECt * FROM emperor_table WHERE age=:age")
-    public List<Emperor> queryEmperorsByAge(String age);
+    public List<Emperor> queryEmperorsByAge(Integer age);
 
 
     //查所有
     @Query("SELECt * FROM emperor_table")
     public List<Emperor> queryEmperors();
-
 
     //查所有，使用LiveData将结果List<Emperor>包装起来
     @Query("SELECt * FROM emperor_table")

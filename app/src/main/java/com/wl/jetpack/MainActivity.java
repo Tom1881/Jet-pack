@@ -44,10 +44,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.btn_insertEmperor:
                 new Thread(() -> {
-                    Emperor caoCao = new Emperor(1, "曹操", "54");
-                    Emperor liuBei = new Emperor("刘备", "34");
-                    Emperor sunQuan = new Emperor(4, "孙权", "18");
-                    dao.insertEmperor(caoCao, liuBei, sunQuan);
+//                    Emperor caoCao = new Emperor(1, "曹操", "54");
+//                    Emperor liuBei = new Emperor("刘备", "34");
+//                    Emperor sunQuan = new Emperor(4, "孙权", "18");
+//                    dao.insertEmperor(caoCao, liuBei, sunQuan);
                 }).start();
                 break;
             case R.id.btn_deleteEmperor:
@@ -59,12 +59,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_updateEmperor:
                 new Thread(() -> {
-                    Emperor caoCao = dao.queryEmperorById(1);
-                    caoCao.age = "34";
-                    Emperor liuBei = dao.queryEmperorById(2);
-                    liuBei.age = "49";
-
-                    dao.updateEmperor(caoCao, liuBei);
+//                    Emperor caoCao = dao.queryEmperorById(1);
+//                    caoCao.age = "34";
+//                    Emperor liuBei = dao.queryEmperorById(2);
+//                    liuBei.age = "49";
+//
+//                    dao.updateEmperor(caoCao, liuBei);
                 }).start();
                 break;
             case R.id.btn_queryEmperorById:
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_queryEmperorsByAge:
                 new Thread(() -> {
-                    List<Emperor> list = dao.queryEmperorsByAge("54");
+                    //                   List<Emperor> list = dao.queryEmperorsByAge("54");
                 }).start();
                 break;
             case R.id.btn_queryEmperors:

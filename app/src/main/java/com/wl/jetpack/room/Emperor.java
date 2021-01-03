@@ -17,21 +17,21 @@ public class Emperor {
     public String name;
 
 
-    @ColumnInfo(name = "age", typeAffinity = ColumnInfo.TEXT)
-    public String age;
+    @ColumnInfo(name = "age", typeAffinity = ColumnInfo.INTEGER)
+    public Integer age;
 
     //增加一个性别的字段
     @ColumnInfo(name = "gender", typeAffinity = ColumnInfo.TEXT)
     public String gender;
 
-    public Emperor(int id, String name, String age) {
+    public Emperor(int id, String name, Integer age) {
         this.id = id;
         this.name = name;
         this.age = age;
     }
 
     @Ignore
-    public Emperor(int id, String name, String age, String gender) {
+    public Emperor(int id, String name, Integer age, String gender) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -39,7 +39,7 @@ public class Emperor {
     }
 
     @Ignore
-    public Emperor(String name, String age) {
+    public Emperor(String name, Integer age) {
         this.name = name;
         this.age = age;
     }
