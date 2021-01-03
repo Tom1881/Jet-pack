@@ -20,11 +20,22 @@ public class Emperor {
     @ColumnInfo(name = "age", typeAffinity = ColumnInfo.TEXT)
     public String age;
 
+    //增加一个性别的字段
+    @ColumnInfo(name = "gender", typeAffinity = ColumnInfo.TEXT)
+    public String gender;
 
     public Emperor(int id, String name, String age) {
         this.id = id;
         this.name = name;
         this.age = age;
+    }
+
+    @Ignore
+    public Emperor(int id, String name, String age, String gender) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
     }
 
     @Ignore
@@ -39,6 +50,7 @@ public class Emperor {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", age='" + age + '\'' +
+                ", gender='" + gender + '\'' +
                 '}';
     }
 }
