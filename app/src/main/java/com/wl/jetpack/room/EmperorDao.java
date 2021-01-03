@@ -1,5 +1,6 @@
 package com.wl.jetpack.room;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -38,4 +39,9 @@ public interface EmperorDao {
     //查所有
     @Query("SELECt * FROM emperor_table")
     public List<Emperor> queryEmperors();
+
+
+    //查所有，使用LiveData将结果List<Emperor>包装起来
+    @Query("SELECt * FROM emperor_table")
+    public LiveData<List<Emperor>> queryEmperorsByLiveData();
 }

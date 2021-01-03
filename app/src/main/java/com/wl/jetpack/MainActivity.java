@@ -1,12 +1,16 @@
 package com.wl.jetpack;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.wl.jetpack.room.Emperor;
 import com.wl.jetpack.room.EmperorDao;
+import com.wl.jetpack.room.EmperorViewModel;
 import com.wl.jetpack.room.MyDatabase;
 
 import java.util.List;
@@ -23,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         dao = MyDatabase.getDatabaseInstance(this).getEmperorDao();
 
         initViews();
+        initViewModel();
     }
 
     private void initViews() {
@@ -78,5 +83,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }).start();
                 break;
         }
+    }
+
+    private void initViewModel() {
+        EmperorViewModel emperorViewModel = new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication())).get(EmperorViewModel.class);
+        emperorViewModel.getListEmperor().observe(this, new Observer<List<Emperor>>() {
+            @Override
+            public void onChanged(List<Emperor> emperors) {
+                for (int i = 0; i < emperors.size(); i++) {
+                    Log.e("jetpack", emperors.get(i).toString());
+                }
+            }
+        });
     }
 }
