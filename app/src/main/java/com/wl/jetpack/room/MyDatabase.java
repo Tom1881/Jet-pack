@@ -9,6 +9,7 @@ import androidx.room.RoomDatabase;
 import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+//在这指定版本号
 @Database(entities = {Emperor.class}, version = 2)
 public abstract class MyDatabase extends RoomDatabase {
 
@@ -21,6 +22,8 @@ public abstract class MyDatabase extends RoomDatabase {
             databaseInstance = Room
                     .databaseBuilder(context.getApplicationContext(), MyDatabase.class, DATABASE_NAME)
                     .addMigrations(MIGRATION_1_2)
+                    //为了防止数据库升级失败导致崩溃，加入该方法可以在出现异常时创建数据表而不崩溃，但表中数据会丢失
+                    .fallbackToDestructiveMigration()
                     .build();
         }
         return databaseInstance;
