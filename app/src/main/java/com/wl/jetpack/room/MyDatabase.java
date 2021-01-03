@@ -10,7 +10,8 @@ import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 //在这指定版本号
-@Database(entities = {Emperor.class}, version = 2)
+//是否导出schema文件，默认是导出的
+@Database(entities = {Emperor.class}, version = 2, exportSchema = true)
 public abstract class MyDatabase extends RoomDatabase {
 
     private static final String DATABASE_NAME = "emperor_db";
